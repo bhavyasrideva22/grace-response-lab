@@ -1,42 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Emotional Intelligence Assessment Design System */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Core Background & Text */
+    --background: 210 25% 98%;
+    --foreground: 215 25% 15%;
 
+    /* Card & Surface Colors */
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 215 25% 15%;
+    --surface-soft: 210 20% 96%;
+    --surface-elevated: 0 0% 100%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    /* Assessment Brand Colors */
+    --primary: 195 85% 41%;        /* Deep teal for trust & stability */
+    --primary-foreground: 0 0% 100%;
+    --primary-soft: 195 45% 88%;   /* Soft teal backgrounds */
+    --primary-glow: 195 75% 55%;   /* Bright teal for highlights */
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Emotional Warmth */
+    --secondary: 25 85% 65%;       /* Warm coral for empathy */
+    --secondary-foreground: 0 0% 100%;
+    --secondary-soft: 25 45% 92%;
+    
+    /* Wisdom & Growth */
+    --accent: 145 35% 45%;         /* Sage green for growth */
+    --accent-foreground: 0 0% 100%;
+    --accent-soft: 145 25% 88%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Neutral Tones */
+    --muted: 210 15% 92%;
+    --muted-foreground: 215 15% 45%;
+    --muted-dark: 215 12% 25%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Interactive States */
+    --border: 210 20% 88%;
+    --input: 210 15% 94%;
+    --ring: 195 85% 41%;
+    
+    /* Status Colors */
+    --success: 145 60% 42%;
+    --success-foreground: 0 0% 100%;
+    --warning: 35 90% 55%;
+    --warning-foreground: 0 0% 100%;
+    --destructive: 0 75% 55%;
+    --destructive-foreground: 0 0% 100%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(195 85% 41%), hsl(195 75% 55%));
+    --gradient-warm: linear-gradient(135deg, hsl(25 85% 65%), hsl(35 75% 70%));
+    --gradient-growth: linear-gradient(135deg, hsl(145 35% 45%), hsl(165 45% 50%));
+    --gradient-subtle: linear-gradient(180deg, hsl(210 25% 98%), hsl(210 20% 96%));
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    /* Shadows & Effects */
+    --shadow-soft: 0 2px 20px -5px hsl(195 85% 41% / 0.15);
+    --shadow-elevated: 0 8px 30px -10px hsl(195 85% 41% / 0.25);
+    --shadow-glow: 0 0 40px hsl(195 75% 55% / 0.3);
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    /* Spacing & Layout */
+    --radius: 0.75rem;
+    --radius-large: 1rem;
+    --radius-small: 0.5rem;
 
-    --radius: 0.5rem;
+    /* Transitions */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-gentle: all 0.2s ease-out;
 
     --sidebar-background: 0 0% 98%;
 
@@ -100,6 +134,36 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+  }
+}
+
+@layer components {
+  /* Custom assessment components */
+  .assessment-hero {
+    background: var(--gradient-hero);
+    @apply text-white;
+  }
+
+  .card-elevated {
+    background: hsl(var(--surface-elevated));
+    box-shadow: var(--shadow-elevated);
+  }
+
+  .progress-glow {
+    box-shadow: var(--shadow-glow);
+  }
+
+  .transition-smooth {
+    transition: var(--transition-smooth);
+  }
+
+  .transition-gentle {
+    transition: var(--transition-gentle);
   }
 }
